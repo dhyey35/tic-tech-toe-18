@@ -1,0 +1,8 @@
+<div class="container">
+    Dashboard
+    <div>
+        <img src="assets/images/stock-market-1.jpg" alt="Stock Market">
+    </div>
+</div>
+<button class="btn" (click)="showLogoutModal()">Logout</button>
+<confirm-dialog [visible]="logoutModalVisible" message="Are you sure you want to logout ?" title="Logout Confirmation" (getCallBack)="hideLogoutModal($event)"></confirm-dialog>
