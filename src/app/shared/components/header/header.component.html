@@ -33,11 +33,10 @@
       </li>
     </ng-container>
     <ng-container *ngIf="utilService.isLoggedIn">
-        <li style="margin-left:610px">
-          <button style="margin-top: 4px;" (click)="utilService.logout()">Log Out</button>
-        </li>
-      </ng-container>
+      <li style="margin-left:610px">
+        <button style="margin-top: 4px;" (click)="utilService.logout()">Log Out</button>
+      </li>
+    </ng-container>
     <login-signup [visible]="logoutModalVisible" style="font-family: Arial, Helvetica, sans-serif" title="Sign In" (getCallBack)="hideLogoutModal($event)"></login-signup>
     <signup [visible]="SignUpModalVisible" style="font-family: Arial, Helvetica, sans-serif" title="Sign up" (getCallBack)="hideSignoutModal($event)"></signup>
   </div>
-</nav>
