@@ -22,6 +22,7 @@ import {
     SignupComponent,
     SelectPosMapComponent,
     FooterComponent,
+    NearbyMapComponent,
 } from './components';
 import {
     UtilService,
@@ -33,6 +34,7 @@ import {
     VolunteerService,
     InvestorService,
     CompanyService,
+    LabsService,
 } from './services';
 
 import {
@@ -44,6 +46,7 @@ import {
     ValidateDirective,
     TelNumberDirective,
 } from './directives';
+import { AccordionModule } from 'primeng/accordion';
 
 
 @NgModule({
@@ -56,6 +59,7 @@ import {
         ModalModule.forRoot(),
         SliderModule,
         PerfectScrollbarModule,
+        AccordionModule
     ],
     declarations: [
         HeaderComponent,
@@ -66,6 +70,7 @@ import {
         LoginSignupComponent,
         SignupComponent,
         FooterComponent,
+        NearbyMapComponent,
     ],
     exports: [
         HeaderComponent,
@@ -81,6 +86,8 @@ import {
         FooterComponent,
         SliderModule,
         PerfectScrollbarModule,
+        NearbyMapComponent,
+        AccordionModule,
     ],
 })
 export class SharedModule {
@@ -99,6 +106,7 @@ export class SharedModule {
                 VolunteerService,
                 InvestorService,
                 CompanyService,
+                LabsService,
                 {
                     provide: PERFECT_SCROLLBAR_CONFIG,
                     useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
