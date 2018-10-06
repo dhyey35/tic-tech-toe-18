@@ -7,3 +7,6 @@ export * from './gallery.service'
 export * from './CompanyService';
 export * from './InvestorService';
 export * from './VolunteerService';
+export * from './volunteer-historyServices';
+export * from './company_history';
+export * from './investor_history';
