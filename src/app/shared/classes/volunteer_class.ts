@@ -3,9 +3,9 @@ export class Voluteerclass {
         public fk_lab_id: number,
         public skills: string,
         public qualifications: string,
-        public pref_loc1?: number,
-        public pref_loc2?: number,
-        public pref_loc3?: number,
+        public pref_loc1: number,
+        public pref_loc2: number,
+        public pref_loc3: number,
     ) {
 
 

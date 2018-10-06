@@ -43,7 +43,8 @@ export class SelectPinMapComponent implements OnInit {
                 return {
                     lat: parseFloat(val.location.split(",")[0]), 
                     lng: parseFloat(val.location.split(",")[1]), 
-                    name: "Lab " + val.lab_id
+                    name: "Lab " + val.lab_id,
+                    lab_id: val.lab_id,
                 }
             })
             this.showMap();
