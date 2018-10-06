@@ -1,4 +1,7 @@
 <div class="container">
+    <h3>Volunteer select at most three location at a time.More than 3 location is not allowed !!!</h3>
+</div>
+<div class="container">
     Want to Be Volunteer
     <form (ngSubmit)="sendLoginRequest(loginRequestForm)" role="form" #loginRequestForm="ngForm" [validate]="loginRequestForm">
         <div class="form-body">
@@ -44,7 +47,9 @@
                         #hq="ngModel" required>
                 </div>
             </div>
-
+            <div class="container">
+                <h4>Please select at most three of your preferable location !!!</h4>
+            </div>
             <div>
                 <app-select-pin-map (selectedPins)="selectedPinsChanged($event)"></app-select-pin-map>
             </div>
