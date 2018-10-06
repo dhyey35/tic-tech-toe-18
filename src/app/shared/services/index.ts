@@ -10,3 +10,4 @@ export * from './VolunteerService';
 export * from './volunteer-historyServices';
 export * from './company_history';
 export * from './investor_history';
+export * from './labs.service';

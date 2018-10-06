@@ -23,8 +23,8 @@ import {
     SignupComponent,
     SelectPosMapComponent,
     FooterComponent,
-    
-
+    NearbyMapComponent,
+    SelectPinMapComponent,
 } from './components';
 import {
     UtilService,
@@ -38,7 +38,8 @@ import {
     CompanyService,
     volunteerhistoryService,
     CompanyHistoryService,
-    InvestorHistoryService
+    InvestorHistoryService,
+    LabsService,
 } from './services';
 
 import {
@@ -75,6 +76,8 @@ import { AccordionModule } from 'primeng/accordion';
         LoginSignupComponent,
         SignupComponent,
         FooterComponent,
+        NearbyMapComponent,
+        SelectPinMapComponent,
     ],
     exports: [
         HeaderComponent,
@@ -91,7 +94,10 @@ import { AccordionModule } from 'primeng/accordion';
         SliderModule,
         PerfectScrollbarModule,
         AccordionModule,
-        TableModule
+        TableModule,
+        NearbyMapComponent,
+        AccordionModule,
+        SelectPinMapComponent,
     ],
 })
 export class SharedModule {
@@ -110,6 +116,7 @@ export class SharedModule {
                 VolunteerService,
                 InvestorService,
                 CompanyService,
+                LabsService,
                 {
                     provide: PERFECT_SCROLLBAR_CONFIG,
                     useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
