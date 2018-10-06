@@ -1,71 +1,77 @@
 <div class="container">
-  Invest in our Idea
-  <form (ngSubmit)="sendLoginRequest(loginRequestForm)" role="form" #loginRequestForm="ngForm" [validate]="loginRequestForm">
-      <div class="form-body">
-          <h2>INVEST</h2>
-          <div class="form-group">
-              <div class="input-group">
-                  <span class="input-group-addon">
-                      <i class="fas fa-envelope"></i>
-                  </span>
-                  <input type="number" class="form-control" placeholder="amount" name="amount" [(ngModel)]="reqModel.amount" #amount="ngModel" required>
-              </div>
-              <div [hidden]="amount.valid || amount.untouched">
-                  <div style="color:red; text-align: center;" *ngIf="amount.errors">
-                      Amount is Required
-                  </div>
-              </div>
-          </div>
-          <div class="form-group">
-              <div class="input-group">
-                  <span class="input-group-addon">
-                      <i class="fas fa-lock"></i>
-                  </span>
-                  <input type="number" class="form-control" placeholder="Enter Year" name="year" [(ngModel)]="reqModel.year" #year="ngModel">
-              </div>
-          </div>
-          <div class="form-group">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="fas fa-lock"></i>
-                </span>
-                <input type="number" class="form-control" placeholder="Enter Month" name="month" [(ngModel)]="reqModel.month" #month="ngModel">
+    Invest in our Idea
+    <form (ngSubmit)="sendLoginRequest(loginRequestForm)" role="form" #loginRequestForm="ngForm" [validate]="loginRequestForm">
+        <div class="form-body">
+            <h2>INVEST</h2>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <input type="number" class="form-control" placeholder="amount" name="amount" [(ngModel)]="reqModel.amount" #amount="ngModel"
+                        required>
+                </div>
+                <div [hidden]="amount.valid || amount.untouched">
+                    <div style="color:red; text-align: center;" *ngIf="amount.errors">
+                        Amount is Required
+                    </div>
+                </div>
             </div>
-        </div> <div class="form-group">
-          <div class="input-group">
-              <span class="input-group-addon">
-                  <i class="fas fa-lock"></i>
-              </span>
-              <input type="number" class="form-control" placeholder="Enter Days" name="days" [(ngModel)]="reqModel.days" #days="ngModel">
-          </div>
-      </div>
-      <div>
-        Expected Duration of Return
-        <div class="input-group">
-          <span class="input-group-addon">
-              <i class="fas fa-lock"></i>
-          </span>
-          <input type="number" class="form-control" placeholder="Enter Years" name="eyear" [(ngModel)]="reqModel.eyear" #eyear="ngModel">
-      </div>
-      </div>
-          <div class="form-group">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="fas fa-lock"></i>
-                </span>
-                <input type="number" class="form-control" placeholder="Enter emonth" name="emonth" [(ngModel)]="reqModel.emonth" #emonth="ngModel" required>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="number" class="form-control" placeholder="Enter Year" name="year" [(ngModel)]="reqModel.year" #year="ngModel">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="number" class="form-control" placeholder="Enter Month" name="month" [(ngModel)]="reqModel.month" #month="ngModel">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="number" class="form-control" placeholder="Enter Days" name="days" [(ngModel)]="reqModel.days" #days="ngModel">
+                </div>
+            </div>
+            <div>
+                Expected Duration of Return
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="number" class="form-control" placeholder="Enter Years" name="eyear" [(ngModel)]="reqModel.eyear" #eyear="ngModel">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="number" class="form-control" placeholder="Enter emonth" name="emonth" [(ngModel)]="reqModel.emonth" #emonth="ngModel"
+                        required>
+                </div>
+            </div>
+            <p>Please select atmost three of your desired places to open a lab.</p>
+            <div>
+                <app-select-pos-map (selectedPins)="selectedPinsChanged($event)"></app-select-pos-map>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn">Submit</button>
+            </div>
+            <div class="bottom-link" style="color: red" *ngIf="message">
+                {{message}}
             </div>
         </div>
-        
-          <div class="form-actions">
-              <button type="submit" class="btn">Submit</button>
-          </div>
-          <div class="bottom-link" style="color: red" *ngIf="message">
-              {{message}}
-          </div>
-      </div>
-  </form>
-  <div>
-      <a [routerLink]="['/about']" class="forget-password pull-right">About</a>        
-  </div>
+    </form>
+    <div>
+        <a [routerLink]="['/about']" class="forget-password pull-right">About</a>
+    </div>
 </div>

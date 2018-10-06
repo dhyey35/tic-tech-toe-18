@@ -38,6 +38,10 @@ const routes: Routes = [
         loadChildren: './gallery/gallery.module#GalleryModule',
     },
     {
+        path: 'investor-investing',
+        loadChildren: './investor-investing/investor-investing.module#InvestorInvestingModule',
+    },
+    {
         path: 'application',
         loadChildren: './layout/layout.module#LayoutModule',
         canActivate: [AuthGuard]
