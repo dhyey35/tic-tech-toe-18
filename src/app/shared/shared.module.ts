@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { SliderModule } from 'angular-image-slider';
+import {TableModule} from 'primeng/table';
 import { PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -35,6 +36,9 @@ import {
     VolunteerService,
     InvestorService,
     CompanyService,
+    volunteerhistoryService,
+    CompanyHistoryService,
+    InvestorHistoryService,
     LabsService,
 } from './services';
 
@@ -60,7 +64,8 @@ import { AccordionModule } from 'primeng/accordion';
         ModalModule.forRoot(),
         SliderModule,
         PerfectScrollbarModule,
-        AccordionModule
+        AccordionModule,
+        TableModule
     ],
     declarations: [
         HeaderComponent,
@@ -88,6 +93,8 @@ import { AccordionModule } from 'primeng/accordion';
         FooterComponent,
         SliderModule,
         PerfectScrollbarModule,
+        AccordionModule,
+        TableModule,
         NearbyMapComponent,
         AccordionModule,
         SelectPinMapComponent,
@@ -113,7 +120,11 @@ export class SharedModule {
                 {
                     provide: PERFECT_SCROLLBAR_CONFIG,
                     useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-                }
+                },
+                CompanyHistoryService,
+                volunteerhistoryService,
+                InvestorService,
+                InvestorHistoryService
             ]
         }
     }

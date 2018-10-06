@@ -1,0 +1,30 @@
+Investor History Page Works
+<p-accordion>
+    <p-accordionTab header="{{investor_history? investor_history[0].name:''}}">
+        <p-table [value]="investor_history">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Amount</th>
+                    <th>Start Date</th>
+                    <th>Expected Return Date</th>
+                    <th>Actual Return Date</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+                
+                <tr>
+                        <td>{{item.amount}}</td>
+                        <td>{{item.start_date | date:"dd/mm/yy"}}</td>
+                        <td>{{item.expected_ret_date | date:"dd/mm/yy"}}</td>
+                        <td>{{item.actual_ret_date | date:"dd/mm/yy"}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p-accordionTab>
+    <!-- <p-accordionTab header="Header 2">
+        Content 2
+    </p-accordionTab>
+    <p-accordionTab header="Header 3">
+        Content 3    
+    </p-accordionTab> -->
+</p-accordion>
