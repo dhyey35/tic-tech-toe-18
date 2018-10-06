@@ -22,6 +22,7 @@ import {
     SignupComponent,
     SelectPosMapComponent,
     FooterComponent,
+
 } from './components';
 import {
     UtilService,
@@ -44,6 +45,7 @@ import {
     ValidateDirective,
     TelNumberDirective,
 } from './directives';
+import { AccordionModule } from 'primeng/accordion';
 
 
 @NgModule({
@@ -56,6 +58,7 @@ import {
         ModalModule.forRoot(),
         SliderModule,
         PerfectScrollbarModule,
+        AccordionModule
     ],
     declarations: [
         HeaderComponent,
@@ -81,6 +84,7 @@ import {
         FooterComponent,
         SliderModule,
         PerfectScrollbarModule,
+        AccordionModule
     ],
 })
 export class SharedModule {

@@ -5,7 +5,7 @@ export class Voluteerclass {
          public pref_loc2: string,
          public pref_loc3: string,
          public skills: string,
-         public qualification: string) {
+         public qualifications: string) {
 
 
     }

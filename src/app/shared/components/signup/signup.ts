@@ -63,10 +63,10 @@ export class SignupComponent implements OnChanges {
             this.utilService.showErrorToast("Please fill the form correctly");
             return;
         } else {
-            this.user_Service.addUser(new Userclass(null,this.reqModel.email,this.reqModel.password,this.reqModel.name,this.reqModel.contact,this.reqModel.user_type)).subscribe((data:Userclass)=>{
-                    localStorage.setItem('email_id',data.email_id);
-                    localStorage.setItem('fk_id',data.user_id.toString());
-                    localStorage.setItem('user_type',data.user_type);
+            this.user_Service.addUser(new Userclass(null,this.reqModel.email,this.reqModel.password,this.reqModel.name,this.reqModel.contact,this.reqModel.user_type)).subscribe((data:Userclass[])=>{
+                    localStorage.setItem('email_id',data[0].email_id);
+                    localStorage.setItem('fk_id',data[0].user_id);
+                    localStorage.setItem('user_type',data[0].user_type);
                     console.log("Success");
             },()=>{
                 console.log("error");

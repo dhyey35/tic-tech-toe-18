@@ -55,13 +55,19 @@ export class InvestorInvestingComponent implements OnInit {
              now.add(this.reqModel.year,"years");
              now.add(this.reqModel.month,"months");
              now.add(this.reqModel.days,"days");
-            let tods=moment().locale();
-             let sg=moment().local();
-             let gh=moment().local();
-             gh.add(this.reqModel.eyear,"year");
+             let gh=moment().local(true);
+             gh.add(this.reqModel.eyear,"years");
              gh.add(this.reqModel.emonth,"months");
+             let todays=moment().local(true);
             this.investService.addInvestor(new Investorclass
-                (parseInt(localStorage.getItem('fk_id')),this.reqModel.amount,now.toDate(),gh.toDate(),null,null,null,null)).subscribe((data:Investorclass)=>{
+                (parseInt(localStorage.getItem('fk_id')),
+                this.reqModel.amount,
+                todays.toDate(),
+                now.toDate(),
+                gh.toDate(),
+                null,
+                null,
+                null)).subscribe((data:Investorclass)=>{
                         console.log("Success");
                 },()=>{
                     this.utilService.showErrorToast("Can`t Submitted your request");;
