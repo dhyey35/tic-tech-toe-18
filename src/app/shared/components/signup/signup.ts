@@ -1,12 +1,12 @@
 import { Component, OnInit, TemplateRef, ViewChild, Input, SimpleChanges, Output, EventEmitter, OnChanges } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { Router, NavigationEnd,ActivatedRoute } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { NgForm, NgModel } from '@angular/forms';
 import {
     UserAuthenticationService,
     UtilService,
-    
+
 } from '../../services';
 import { UserService } from '../../services/UserService';
 import { Userclass } from '../../classes/user_calss';
@@ -36,25 +36,25 @@ export class SignupComponent implements OnChanges {
         public router: Router,
         public route: ActivatedRoute,
         private userAuthenticationService: UserAuthenticationService,
-        private user_Service:UserService
+        private user_Service: UserService
     ) {
 
     }
 
     ngOnChanges() {
-        if(this.visible){
-            setTimeout(()=>{
+        if (this.visible) {
+            setTimeout(() => {
                 this.openModal();
-            },0);
+            }, 0);
         }
     }
     initModel() {
         this.reqModel = {
             email: '',
             password: '',
-            name:'',
-            contact:'',
-            user_type:''
+            name: '',
+            contact: '',
+            user_type: ''
         };
     }
 
@@ -63,18 +63,18 @@ export class SignupComponent implements OnChanges {
             this.utilService.showErrorToast("Please fill the form correctly");
             return;
         } else {
-            this.user_Service.addUser(new Userclass(null,this.reqModel.email,this.reqModel.password,this.reqModel.name,this.reqModel.contact,this.reqModel.user_type)).subscribe((data:Userclass[])=>{
-                    localStorage.setItem('email_id',data[0].email_id);
-                    localStorage.setItem('fk_id',data[0].user_id);
-                    localStorage.setItem('user_type',data[0].user_type);
-                    console.log("Success");
-            },()=>{
+            this.user_Service.addUser(new Userclass(null, this.reqModel.email, this.reqModel.password, this.reqModel.name, this.reqModel.contact, this.reqModel.user_type)).subscribe((data: Userclass[]) => {
+                localStorage.setItem('email_id', data[0].email_id);
+                localStorage.setItem('fk_id', data[0].user_id);
+                localStorage.setItem('user_type', data[0].user_type);
+                console.log("Success");
+            }, () => {
                 console.log("error");
                 this.utilService.showErrorToast("Email or Password are invalid");
-            },()=>{
+            }, () => {
                 console.log("completed")
             });
-           
+
         }
     }
     ngOnInit() {
@@ -86,7 +86,7 @@ export class SignupComponent implements OnChanges {
             keyboard: false,
         });
     }
-    
+
     public closeModalWithAction() {
         this.getCallBack.emit(true)
         this.modalRef.hide();

@@ -37,6 +37,10 @@ const routes: Routes = [
         path: 'gallery',
         loadChildren: './gallery/gallery.module#GalleryModule',
     },
+    /* {
+        path: 'analytics',
+        loadChildren: './analytics/analytics.module#AnalyticsModule',
+    }, */
     {
         path: 'application',
         loadChildren: './layout/layout.module#LayoutModule',
