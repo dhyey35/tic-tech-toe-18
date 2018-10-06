@@ -1,32 +1,31 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, NgZone, EventEmitter, Output } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { UtilService, IPService, LabsService } from '../../services';
 
 declare var google: any;
 
 @Component({
-    selector: 'app-nearby-map',
-    templateUrl: './nearby-map.component.html',
+    selector: 'app-select-pin-map',
+    templateUrl: './select-pin-map.component.html',
     styles: [
         `
-        #map {
-            width: 100%;
-            height: 400px;
+        #select-pin-map {
+            width: 500px;
+            height: 500px;
         }
-        
         `
     ]
 })
-export class NearbyMapComponent implements OnInit {
-    @ViewChild("mapRef") mapRef: ElementRef;
-    map: any
-    locations: Array<any> = [
-        // { lat: 28.5355, lng: 77.3910, name: "Lab 1" },
-        // { lat: 30.5355, lng: 79.3910, name: "Lab 2" }
-    ];
+export class SelectPinMapComponent implements OnInit {
+    @ViewChild("selectPinMap") selectPinMap: ElementRef;
+    @Output("selectedPins") selectedPins: EventEmitter<any> = new EventEmitter();
+    map: any;
     ownLocation: any;
+    allLatLngs: Array<any> = [];
+    locations: Array<any> = [];
     allMarkers: Array<any> = [];
-    nearestLab: any;
+    selectedCount: number = 0;
+    currentSelectedPins: Array<any> = [];
 
     constructor(
         public utilService: UtilService,
@@ -61,9 +60,37 @@ export class NearbyMapComponent implements OnInit {
             zoom: 4
         }
 
-        this.map = new google.maps.Map(this.mapRef.nativeElement, options);
+        this.map = new google.maps.Map(this.selectPinMap.nativeElement, options);
         this.locations.map(value => {
-            this.allMarkers.push(this.addMarker(value, this.map));
+            var marker = this.addMarker(value, this.map);
+            marker.addListener('click', (event) => {
+                if(marker.isSelected) {
+                    this.selectedCount--;
+                    // deselect
+                    marker.setIcon("https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2.png");
+                    marker.isSelected = false;
+                    var indexToRemove = 0;
+                    this.currentSelectedPins.map((pin, index) => {
+                        if(pin === marker) {
+                            indexToRemove = index;
+                        }
+                    });
+                    this.currentSelectedPins.splice(indexToRemove, 1);
+                } else {
+                    if(this.selectedCount == 3) {
+                        this.ngz.run(() => {
+                            this.utilService.showErrorToast("You can select maximum of 3 labs");
+                        })
+                        return;
+                    }
+                    this.selectedCount++;
+                    marker.setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
+                    marker.isSelected = true;
+                    this.currentSelectedPins.push(marker);
+                }
+                this.selectedPins.emit(this.currentSelectedPins);
+            });
+            this.allMarkers.push(marker);
         });
 
         if (navigator.geolocation) {
@@ -96,27 +123,6 @@ export class NearbyMapComponent implements OnInit {
         map.panTo(position);
     }
 
-    nearMe() {
-        var minIndex = 0;
-        var minDistance = 0;
-        for(var i = 0; i < this.allMarkers.length; i++) {
-            var data = this.allMarkers[i].position;
-            var dis = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(this.ownLocation.lat, this.ownLocation.lng), data);
-            console.log("dis", dis);
-            if(dis < minDistance) {
-                minIndex = i;
-                minDistance = dis;
-            }
-        }
-        console.log("min", this.allMarkers[minIndex]);
-        this.allMarkers[minIndex].setIcon("http://maps.google.com/mapfiles/ms/icons/yellow-dot.png");
-        this.allMarkers[minIndex].setTitle("Nearest Lab - " + this.allMarkers[minIndex].getTitle());
-        this.nearestLab = {
-            name: this.allMarkers[minIndex].name,
-            address: this.allMarkers[minIndex].address,
-        }
-    }
-
     addMarker(pos, map, own?) {
         const obj: any = {};
         if (own) {
@@ -127,6 +133,7 @@ export class NearbyMapComponent implements OnInit {
             obj.title = pos.name;
             obj.name = pos.name;
             obj.address = pos.address;
+            obj.lab_id = pos.lab_id;
         }
         return new google.maps.Marker({
             position: pos,

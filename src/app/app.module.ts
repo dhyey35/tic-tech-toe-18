@@ -15,9 +15,6 @@ import { VolunteerHistory } from './volunteer_history/volunteer_history.componen
 @NgModule({
     declarations: [
         AppComponent,
-        InvestorInvestingComponent,
-        BeVolunteerComponent,
-        VolunteerHistory
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'my-app' }),

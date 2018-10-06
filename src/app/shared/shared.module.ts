@@ -23,6 +23,7 @@ import {
     SelectPosMapComponent,
     FooterComponent,
     NearbyMapComponent,
+    SelectPinMapComponent,
 } from './components';
 import {
     UtilService,
@@ -71,6 +72,7 @@ import { AccordionModule } from 'primeng/accordion';
         SignupComponent,
         FooterComponent,
         NearbyMapComponent,
+        SelectPinMapComponent,
     ],
     exports: [
         HeaderComponent,
@@ -88,6 +90,7 @@ import { AccordionModule } from 'primeng/accordion';
         PerfectScrollbarModule,
         NearbyMapComponent,
         AccordionModule,
+        SelectPinMapComponent,
     ],
 })
 export class SharedModule {
