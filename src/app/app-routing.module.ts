@@ -14,13 +14,12 @@ const routes: Routes = [
         loadChildren: './about/about.module#AboutModule',
     },
     {
-<<<<<<< HEAD
         path: 'volunteer',
         loadChildren: './volunteer/volunteer.module#VolunteerModule',
-=======
+    },
+    {
         path: 'home',
         loadChildren: './home/home.module#HomeModule',
->>>>>>> 41193cc1db4aab22824f4005c69a332ff9f8034e
     },
     {
         path: 'bevoluteer',
