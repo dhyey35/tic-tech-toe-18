@@ -7,7 +7,7 @@ const routes: Routes = [
     {
         path: 'login',
         loadChildren: './login/login.module#LoginModule',
-        canActivate: [GuestGuard]
+       
     },
     {
         path: 'about',
@@ -20,9 +20,10 @@ const routes: Routes = [
     {
         path: 'home',
         loadChildren: './home/home.module#HomeModule',
+        canActivate: [GuestGuard]
     },
     {
-        path: 'bevoluteer',
+        path: 'bevolunteer',
         loadChildren: './be-volunteer/be-volunteer.module#BeVolunteerModule',
     },
     {
