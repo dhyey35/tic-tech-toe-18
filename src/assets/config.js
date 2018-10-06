@@ -3,7 +3,7 @@
 
 var dotNet = {
     local: "http://localhost",
-    dev: "http://xyz.com/",
+    dev: "https://edtechbackend.herokuapp.com/",
 }
 
 apiUrls = {
