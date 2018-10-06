@@ -1,6 +1,6 @@
 <ng-template #confirmModal>
     <div class="modal-header">
-        <h4 style="margin-left: 190px">{{title}}</h4>
+        <h4 style="margin-left: 190px">{{title}}</h4> 
         <button type="button" class="close pull-right" aria-label="Close" (click)="simpleHide()">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -9,7 +9,7 @@
         <div class="container">
             <form (ngSubmit)="sendLoginRequest(loginRequestForm)" role="form" #loginRequestForm="ngForm" [validate]="loginRequestForm">
                 <div class="form-body">
-
+                    
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon">
@@ -31,8 +31,10 @@
                             <input type="password" class="form-control" placeholder="Enter Password" name="Password" [(ngModel)]="reqModel.password" #password="ngModel" required>
                         </div>
                     </div>
-
+                    
                     <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        <!-- <button type="submit" class="btn">Sign in</button> -->
                     </div>
                     <div class="bottom-link" style="color: red" *ngIf="mess">
                         {{mess}}
