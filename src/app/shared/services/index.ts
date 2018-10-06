@@ -7,3 +7,4 @@ export * from './gallery.service'
 export * from './CompanyService';
 export * from './InvestorService';
 export * from './VolunteerService';
+export * from './labs.service';

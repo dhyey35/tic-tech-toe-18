@@ -10,7 +10,8 @@ declare var $: any;
 })
 export class HeaderComponent implements OnInit {
     public logoutModalVisible: boolean = false;
-    public SignUpModalVisible: boolean = false;
+
+ public SignUpModalVisible: boolean = false;
     constructor(
        
         public utilService: UtilService,
