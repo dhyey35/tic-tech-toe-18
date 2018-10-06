@@ -3,24 +3,33 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { SliderModule } from 'angular-image-slider';
+import { PerfectScrollbarModule, PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+    suppressScrollX: true
+};
+
 import {
     PaginationModule,
     ModalModule,
 } from 'ngx-bootstrap';
 
-
 import {
     HeaderComponent,
     ConfirmDialogComponent,
     LoginSignupComponent,
-    SignupComponent
-    
+    SignupComponent,
+    SelectPosMapComponent,
+    FooterComponent,
 } from './components';
 import {
     UtilService,
     CommonService,
     UserAuthenticationService,
-    UserService
+    UserService,
+    IPService,
+    GalleryService,
 } from './services';
 
 import {
@@ -42,14 +51,18 @@ import {
         FormsModule,
         PaginationModule.forRoot(),
         ModalModule.forRoot(),
+        SliderModule,
+        PerfectScrollbarModule,
     ],
     declarations: [
         HeaderComponent,
         ConfirmDialogComponent,
+        SelectPosMapComponent,
         ValidateDirective,
         TelNumberDirective,
         LoginSignupComponent,
-        SignupComponent
+        SignupComponent,
+        FooterComponent,
     ],
     exports: [
         HeaderComponent,
@@ -60,7 +73,11 @@ import {
         ConfirmDialogComponent,
         TelNumberDirective,
         LoginSignupComponent,
-        SignupComponent
+        SignupComponent,
+        SelectPosMapComponent,
+        FooterComponent,
+        SliderModule,
+        PerfectScrollbarModule,
     ],
 })
 export class SharedModule {
@@ -73,7 +90,13 @@ export class SharedModule {
                 CommonService,
                 UtilService,
                 UserAuthenticationService,
-                UserService
+                UserService,
+                IPService,
+                GalleryService,
+                {
+                    provide: PERFECT_SCROLLBAR_CONFIG,
+                    useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+                }
             ]
         }
     }

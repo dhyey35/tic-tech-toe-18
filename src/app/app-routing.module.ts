@@ -22,6 +22,14 @@ const routes: Routes = [
         loadChildren: './privacy-policy/privacy-policy.module#PrivacyPolicyModule',
     },
     {
+        path: 'our-sponsors',
+        loadChildren: './our-sponsors/our-sponsors.module#OurSponsorsModule',
+    },
+    {
+        path: 'gallery',
+        loadChildren: './gallery/gallery.module#GalleryModule',
+    },
+    {
         path: 'application',
         loadChildren: './layout/layout.module#LayoutModule',
         canActivate: [AuthGuard]
