@@ -23,7 +23,7 @@ const routes: Routes = [
         canActivate: [GuestGuard]
     },
     {
-        path: 'bevoluteer',
+        path: 'bevolunteer',
         loadChildren: './be-volunteer/be-volunteer.module#BeVolunteerModule',
     },
     {
