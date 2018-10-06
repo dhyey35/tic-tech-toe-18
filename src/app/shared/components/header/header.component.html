@@ -23,17 +23,17 @@
             </li>
         </ul>
         
-        <li style="margin-left:700px">
+        <li style="margin-left:610px">
             <button style="margin-top: 4px;" (click)="showLogInModal()">Sign In</button>
           </li>
 
-          <li style="padding-left: 20px">
+          <li style="padding-left: 10px">
               <button style="margin-top: 4px;" (click)="showSignUpModal()">Sign up</button>
             </li>
             <login-signup [visible]="logoutModalVisible" style="font-family: Arial, Helvetica, sans-serif" title="Sign In" (getCallBack)="hideLogoutModal($event)"></login-signup>
 <signup [visible]="SignUpModalVisible" style="font-family: Arial, Helvetica, sans-serif" title="Sign up" (getCallBack)="hideSignoutModal($event)"></signup>
   
-        </ul>
+        
 
      
     </div>
