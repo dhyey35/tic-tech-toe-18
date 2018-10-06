@@ -46,6 +46,7 @@ import {
     ValidateDirective,
     TelNumberDirective,
 } from './directives';
+import { AccordionModule } from 'primeng/accordion';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import {
         ModalModule.forRoot(),
         SliderModule,
         PerfectScrollbarModule,
+        AccordionModule
     ],
     declarations: [
         HeaderComponent,
@@ -85,6 +87,7 @@ import {
         SliderModule,
         PerfectScrollbarModule,
         NearbyMapComponent,
+        AccordionModule,
     ],
 })
 export class SharedModule {

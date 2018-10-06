@@ -59,11 +59,11 @@ export class LoginSignupComponent implements OnChanges {
         }
          else {
              this.userAuthenticationService.login
-             (new Userclass(null,this.reqModel.email,this.reqModel.password,null,null,null)).subscribe((data:Userclass)=>{
+             (new Userclass(null,this.reqModel.email,this.reqModel.password,null,null,null)).subscribe((data:Userclass[])=>{
                     (console.log(data));
-                    localStorage.setItem('fk_id',data.user_id.toString());
-                    localStorage.setItem('email_id',data.email_id);
-                    localStorage.setItem('user_type',data.user_type);
+                    localStorage.setItem('fk_id',data[0].user_id);
+                    localStorage.setItem('email_id',data[0].email_id);
+                    localStorage.setItem('user_type',data[0].user_type);
              },()=>{
                 this.utilService.showErrorToast("Email or Password are invalid");     
              },()=>{

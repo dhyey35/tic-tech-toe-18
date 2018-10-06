@@ -9,12 +9,15 @@ import { SharedModule } from '@shared';
 import { ToastrModule } from 'ngx-toastr';
 import { InvestorInvestingComponent } from './investor-investing/investor.component';
 import { BeVolunteerComponent } from './be-volunteer/be-volunteer.component';
-
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+import {MenuItem} from 'primeng/api';                 //api
+import { VolunteerHistory } from './volunteer_history/volunteer_history.component';
 @NgModule({
     declarations: [
         AppComponent,
         InvestorInvestingComponent,
         BeVolunteerComponent,
+        VolunteerHistory
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'my-app' }),
@@ -24,8 +27,7 @@ import { BeVolunteerComponent } from './be-volunteer/be-volunteer.component';
         AppRoutingModule,
         ToastrModule.forRoot(),
         SharedModule.forRoot(),
-        ReactiveFormsModule
-        
+        ReactiveFormsModule        
     ],
     bootstrap: [AppComponent]
 })
