@@ -22,6 +22,7 @@ import {
     SignupComponent,
     SelectPosMapComponent,
     FooterComponent,
+    NearbyMapComponent,
 } from './components';
 import {
     UtilService,
@@ -33,6 +34,7 @@ import {
     VolunteerService,
     InvestorService,
     CompanyService,
+    LabsService,
 } from './services';
 
 import {
@@ -66,6 +68,7 @@ import {
         LoginSignupComponent,
         SignupComponent,
         FooterComponent,
+        NearbyMapComponent,
     ],
     exports: [
         HeaderComponent,
@@ -81,6 +84,7 @@ import {
         FooterComponent,
         SliderModule,
         PerfectScrollbarModule,
+        NearbyMapComponent,
     ],
 })
 export class SharedModule {
@@ -99,6 +103,7 @@ export class SharedModule {
                 VolunteerService,
                 InvestorService,
                 CompanyService,
+                LabsService,
                 {
                     provide: PERFECT_SCROLLBAR_CONFIG,
                     useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG

@@ -7,14 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from '@shared';
 import { ToastrModule } from 'ngx-toastr';
-import { FooterComponent } from './footer/footer.component';
 import { InvestorInvestingComponent } from './investor-investing/investor.component';
 import { BeVolunteerComponent } from './be-volunteer/be-volunteer.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        FooterComponent,
         InvestorInvestingComponent,
         BeVolunteerComponent,
     ],
