@@ -4,3 +4,6 @@ export * from './user-authentication.service';
 export * from './UserService';
 export * from './ip.service'
 export * from './gallery.service'
+export * from './CompanyService';
+export * from './InvestorService';
+export * from './VolunteerService';

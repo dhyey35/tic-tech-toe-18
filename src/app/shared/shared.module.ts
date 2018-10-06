@@ -30,6 +30,9 @@ import {
     UserService,
     IPService,
     GalleryService,
+    VolunteerService,
+    InvestorService,
+    CompanyService,
 } from './services';
 
 import {
@@ -93,6 +96,9 @@ export class SharedModule {
                 UserService,
                 IPService,
                 GalleryService,
+                VolunteerService,
+                InvestorService,
+                CompanyService,
                 {
                     provide: PERFECT_SCROLLBAR_CONFIG,
                     useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
