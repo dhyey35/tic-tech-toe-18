@@ -2,3 +2,7 @@
 <div class="float-left" style="margin-top: 40px">
     <button class="btn-primary" (click)="nearMe()">Near me</button>
 </div>
+<div *ngIf="nearestLab" style="margin-top: 30px">
+    <strong>{{ nearestLab.name }}</strong>
+    <p>{{ nearestLab.address }}</p>
+</div>

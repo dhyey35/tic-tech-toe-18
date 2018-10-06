@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild, Input, SimpleChanges, Output, EventEmitter, OnChanges } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { Router, NavigationEnd,ActivatedRoute } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { NgForm, NgModel } from '@angular/forms';
 import { Userclass } from '../../classes/user_calss';
 import {
@@ -39,10 +39,10 @@ export class LoginSignupComponent implements OnChanges {
     }
 
     ngOnChanges() {
-        if(this.visible){
-            setTimeout(()=>{
+        if (this.visible) {
+            setTimeout(() => {
                 this.openModal();
-            },0);
+            }, 0);
         }
     }
     initModel() {
@@ -57,19 +57,41 @@ export class LoginSignupComponent implements OnChanges {
             this.utilService.showErrorToast("Please fill the form correctly");
             return;
         }
+<<<<<<< HEAD
+        else {
+            this.userAuthenticationService.login
+                (new Userclass(null, this.reqModel.email, this.reqModel.password, null, null, null)).subscribe((data: Userclass[]) => {
+                    (console.log(data));
+                    localStorage.setItem('fk_id', data[0].user_id);
+                    localStorage.setItem('email_id', data[0].email_id);
+                    localStorage.setItem('user_type', data[0].user_type);
+                }, () => {
+                    this.utilService.showErrorToast("Email or Password are invalid");
+                }, () => {
+                    console.log("Completed");
+                });
+
+=======
          else {
              this.userAuthenticationService.login
              (new Userclass(null,this.reqModel.email,this.reqModel.password,null,null,null)).subscribe((data:Userclass[])=>{
-                    (console.log(data));
+                    if(!data.length) {
+                        return this.utilService.showErrorToast("Email or Password are invalid");
+                    }
                     localStorage.setItem('fk_id',data[0].user_id);
                     localStorage.setItem('email_id',data[0].email_id);
                     localStorage.setItem('user_type',data[0].user_type);
+                    this.utilService.showSuccessToast("Logged in successfully");
+                    this.closeModalWithAction();
+                    this.router.navigate(['/home']);
+                    this.utilService.isLoggedIn = true;
              },()=>{
                 this.utilService.showErrorToast("Email or Password are invalid");     
              },()=>{
                  console.log("Completed");
              });
             
+>>>>>>> 13da6b39bd7481b1849ca0befde30d41a647a8fc
         }
     }
     ngOnInit() {
@@ -81,7 +103,7 @@ export class LoginSignupComponent implements OnChanges {
             keyboard: false,
         });
     }
-    
+
     public closeModalWithAction() {
         this.getCallBack.emit(true)
         this.modalRef.hide();

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, NgZone, EventEmitter, Output } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { UtilService, IPService } from '../../services';
 
@@ -18,6 +18,7 @@ declare var google: any;
 })
 export class SelectPosMapComponent implements OnInit {
     @ViewChild("selectPosMap") selectPosMap: ElementRef;
+    @Output("selectedPins") selectedPins: EventEmitter<any> = new EventEmitter();
     map: any;
     ownLocation: any;
     allLatLngs: Array<any> = [];
@@ -68,8 +69,10 @@ export class SelectPosMapComponent implements OnInit {
             marker.addListener('click', () => {
                 this.allLatLngs[curInsertPos].setMap(null);
                 this.allLatLngs.splice(curInsertPos, 1);
+                this.selectedPins.emit(this.allLatLngs);
             });
             this.allLatLngs.push(marker);
+            this.selectedPins.emit(this.allLatLngs);
             console.log(this.allLatLngs);
         });
     }
@@ -101,5 +104,9 @@ export class SelectPosMapComponent implements OnInit {
             map: map,
             ...obj,
         });
+    }
+    
+    selectedPinsChanged(event: any) {
+        this.selectedPins = event;
     }
 }
