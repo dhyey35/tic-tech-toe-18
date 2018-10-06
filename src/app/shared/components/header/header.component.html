@@ -37,6 +37,6 @@
         <button style="margin-top: 4px;" (click)="utilService.logout()">Log Out</button>
       </li>
     </ng-container>
-    <login-signup [visible]="logoutModalVisible" style="font-family: Arial, Helvetica, sans-serif" title="Sign In" (getCallBack)="hideLogoutModal($event)"></login-signup>
-    <signup [visible]="SignUpModalVisible" style="font-family: Arial, Helvetica, sans-serif" title="Sign up" (getCallBack)="hideSignoutModal($event)"></signup>
+    <login-signup [visible]="logoutModalVisible" title="Sign In" (getCallBack)="hideLogoutModal($event)"></login-signup>
+    <signup [visible]="SignUpModalVisible"  title="Sign up" (getCallBack)="hideSignoutModal($event)"></signup>
   </div>
