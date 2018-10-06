@@ -68,6 +68,9 @@ export class SignupComponent implements OnChanges {
                     localStorage.setItem('fk_id',data[0].user_id);
                     localStorage.setItem('user_type',data[0].user_type);
                     console.log("Success");
+                    this.utilService.showSuccessToast("Signup successfully");
+                    this.closeModalWithAction();
+                    this.utilService.isLoggedIn = true;
             },()=>{
                 console.log("error");
                 this.utilService.showErrorToast("Email or Password are invalid");

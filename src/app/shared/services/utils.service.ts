@@ -30,6 +30,7 @@ export class UtilService {
 	private _urlRegex: RegExp = new RegExp(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi);
 	private _emailRegex: string = "[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
 	private _telephoneRegex: string = "^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{1,3}[-\s\.]?[0-9]+$";
+	public isLoggedIn: boolean = false;
 
 	constructor(
 		private http: Http,
@@ -62,6 +63,7 @@ export class UtilService {
 
 	public logout() {
 		localStorage.removeItem("isLoggedIn");
+		this.isLoggedIn = false;
 	}
 
 	/* All getters for private variables should be kept at bottom to avoid cluttering the file */
