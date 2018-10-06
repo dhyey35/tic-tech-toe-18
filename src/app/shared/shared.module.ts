@@ -12,12 +12,15 @@ import {
 import {
     HeaderComponent,
     ConfirmDialogComponent,
+    LoginSignupComponent,
+    SignupComponent
+    
 } from './components';
-
 import {
     UtilService,
     CommonService,
     UserAuthenticationService,
+    UserService
 } from './services';
 
 import {
@@ -45,6 +48,8 @@ import {
         ConfirmDialogComponent,
         ValidateDirective,
         TelNumberDirective,
+        LoginSignupComponent,
+        SignupComponent
     ],
     exports: [
         HeaderComponent,
@@ -54,6 +59,8 @@ import {
         ValidateDirective,
         ConfirmDialogComponent,
         TelNumberDirective,
+        LoginSignupComponent,
+        SignupComponent
     ],
 })
 export class SharedModule {
@@ -66,6 +73,7 @@ export class SharedModule {
                 CommonService,
                 UtilService,
                 UserAuthenticationService,
+                UserService
             ]
         }
     }

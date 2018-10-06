@@ -1,0 +1,58 @@
+<div class="container">
+  Want to Be Volunteer
+  <form (ngSubmit)="sendLoginRequest(loginRequestForm)" role="form" #loginRequestForm="ngForm" [validate]="loginRequestForm">
+      <div class="form-body">
+          <h2>Be Volunteer</h2>
+          <div class="form-group">
+              <div class="input-group">
+                  <span class="input-group-addon">
+                      <i class="fas fa-envelope"></i>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Name" name="Name" [(ngModel)]="reqModel.name" #Name="ngModel" required>
+              </div>
+              <div [hidden]="Name.valid || Name.untouched">
+                  <div style="color:red; text-align: center;" *ngIf="Name.errors">
+                      Name is Required
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="input-group">
+                  <span class="input-group-addon">
+                      <i class="fas fa-lock"></i>
+                  </span>
+                  <input type="number" class="form-control" placeholder="Enter DOB" name="dob" [(ngModel)]="reqModel.dob" #dob="ngModel" required>
+              </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fas fa-lock"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Enter Skills" name="skills" [(ngModel)]="reqModel.skills" #skills="ngModel" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="input-group">
+              <span class="input-group-addon">
+                  <i class="fas fa-lock"></i>
+              </span>
+              <input type="text" class="form-control" placeholder="Enter Highest Qualification" name="highest_q" [(ngModel)]="reqModel.hq" #highest_q="ngModel" required>
+          </div>
+      </div>
+      
+
+          <div class="form-actions">
+              <button type="submit" class="btn">Submit</button>
+          </div>
+          <div class="bottom-link" style="color: red" *ngIf="message">
+              {{message}}
+          </div>
+      </div>
+  </form>
+  <div>
+      <a [routerLink]="['/about']" class="forget-password pull-right">About</a>        
+  </div>
+</div>

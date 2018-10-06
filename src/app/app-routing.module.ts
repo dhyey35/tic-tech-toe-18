@@ -14,6 +14,14 @@ const routes: Routes = [
         loadChildren: './about/about.module#AboutModule',
     },
     {
+        path: 'bevoluteer',
+        loadChildren: './be-volunteer/be-volunteer.module#BeVolunteerModule',
+    },
+    {
+        path: 'privacy-policy',
+        loadChildren: './privacy-policy/privacy-policy.module#PrivacyPolicyModule',
+    },
+    {
         path: 'application',
         loadChildren: './layout/layout.module#LayoutModule',
         canActivate: [AuthGuard]

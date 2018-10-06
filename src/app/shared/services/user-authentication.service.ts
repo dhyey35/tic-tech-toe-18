@@ -11,6 +11,6 @@ export class UserAuthenticationService {
     }
 
     public login(data: any) {
-        return this.commonService.post('auth/login', data);
+        return this.commonService.post('login', data);
     }
 }

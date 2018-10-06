@@ -22,5 +22,6 @@ export class AppComponent {
             }
             window.scrollTo(0, 0)
         });
+        console.log(localStorage.getItem('email_id'));
     }
 }

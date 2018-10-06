@@ -1,0 +1,98 @@
+<ng-template #confirmModal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{title}}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="simpleHide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            SIGNUP PAGE
+            <form (ngSubmit)="sendLoginRequest(loginRequestForm)" role="form" #loginRequestForm="ngForm" [validate]="loginRequestForm">
+                <div class="form-body">
+                    <h2>Sign In</h2>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Email" name="email" [(ngModel)]="reqModel.email" #email="ngModel" required [pattern]="utilService.emailRegex">
+                        </div>
+                        <div [hidden]="email.valid || email.untouched">
+                            <div style="color:red; text-align: center;" *ngIf="email.errors && email.errors.pattern">
+                                Email is invalid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="reqModel.password" #password="ngModel" required>
+                        </div>
+                        <div [hidden]="password.valid || password.untouched">
+                            <div style="color:red; text-align: center;" *ngIf="password.errors">
+                                Password is invalid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <input type="password" class="form-control" placeholder="Confirm Password" name="cpassword" [(ngModel)]="reqModel.cpassword" #cpassword="ngModel" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Enter Name" name="name" [(ngModel)]="reqModel.name" #name="ngModel" required>
+                        </div>
+                        <div [hidden]="name.valid || name.untouched">
+                            <div style="color:red; text-align: center;" *ngIf="name.errors">
+                                Email is invalid
+                            </div>
+                        </div>
+                    </div>             
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input type="number" class="form-control" placeholder="Contact No" name="contact" [(ngModel)]="reqModel.contact" #contact="ngModel" required>
+                        </div>
+                        <div [hidden]="contact.valid || contact.untouched">
+                            <div style="color:red; text-align: center;" *ngIf="contact.errors">
+                                Contact is invalid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input type="radio" class="form-control" name="user_type" [(ngModel)]="reqModel.user_type" #userType="ngModel"  value="investor">Investor
+                            <input type="radio" class="form-control" name="user_type" [(ngModel)]="reqModel.user_type" #userType="ngModel"  value="volunteer">Volunteer
+                            <input type="radio" class="form-control" name="user_type" [(ngModel)]="reqModel.user_type" #userType="ngModel"  value="company">Company
+                        </div>
+
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn">Sign in</button>
+                    </div>
+                    <div class="bottom-link" style="color: red" *ngIf="mess">
+                        {{mess}}
+                    </div>
+                </div>
+            </form>
+            <div>
+                <a [routerLink]="['/']" class="forget-password pull-right">About</a>        
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -29,11 +29,10 @@ export class ConfirmDialogComponent implements OnChanges {
     ngOnChanges() {
         //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
         //Add '${implements OnChanges}' to the class
-
-        if (this.visible) {
-            setTimeout(() => {
+        if(this.visible){
+            setTimeout(()=>{
                 this.openModal();
-            }, 0);
+            },0);
         }
     }
 

@@ -1,1 +1,5 @@
 Common Header Component
+<button class="btn" (click)="showLogInModal()">Login</button>
+<button class="btn" (click)="showSignUpModal()">SignUp</button>
+<login-signup [visible]="logoutModalVisible"  title="Login" (getCallBack)="hideLogoutModal($event)"></login-signup>
+<signup [visible]="SignUpModalVisible"  title="Signup" (getCallBack)="hideSignoutModal($event)"></signup>
