@@ -14,6 +14,14 @@ const routes: Routes = [
         loadChildren: './about/about.module#AboutModule',
     },
     {
+        path: 'our-sponsors',
+        loadChildren: './our-sponsors/our-sponsors.module#OurSponsorsModule',
+    },
+    {
+        path: 'gallery',
+        loadChildren: './gallery/gallery.module#GalleryModule',
+    },
+    {
         path: 'application',
         loadChildren: './layout/layout.module#LayoutModule',
         canActivate: [AuthGuard]

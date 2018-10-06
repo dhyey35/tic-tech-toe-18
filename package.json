@@ -25,9 +25,12 @@
         "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.8",
         "@nguniversal/express-engine": "^1.0.0-beta.3",
         "@nguniversal/module-map-ngfactory-loader": "^1.0.0-beta.3",
+        "angular-image-slider": "0.0.8",
         "bootstrap": "4.0.0-beta.2",
         "core-js": "^2.5.1",
+        "highcharts": "^6.1.4",
         "ngx-bootstrap": "^3.0.1",
+        "ngx-perfect-scrollbar": "^6.3.1",
         "ngx-toastr": "^8.8.0",
         "rxjs": "^5.5.2",
         "zone.js": "^0.8.14"
