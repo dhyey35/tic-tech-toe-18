@@ -37,6 +37,14 @@ const routes: Routes = [
         path: 'gallery',
         loadChildren: './gallery/gallery.module#GalleryModule',
     },
+    /* {
+        path: 'analytics',
+        loadChildren: './analytics/analytics.module#AnalyticsModule',
+    }, */
+    {
+        path: 'investor-investing',
+        loadChildren: './investor-investing/investor-investing.module#InvestorInvestingModule',
+    },
     {
         path: 'application',
         loadChildren: './layout/layout.module#LayoutModule',
