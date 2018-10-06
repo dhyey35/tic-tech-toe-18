@@ -9,11 +9,9 @@ declare var $: any;
     templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
-    public logoutModalVisible: boolean = false;
-
- public SignUpModalVisible: boolean = false;
+public logoutModalVisible: boolean = false;
+public SignUpModalVisible: boolean = false;
     constructor(
-       
         public utilService: UtilService,
         public router: Router,
     ) {
