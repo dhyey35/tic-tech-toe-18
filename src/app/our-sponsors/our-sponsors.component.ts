@@ -20,8 +20,7 @@ export class OurSponsorsComponent {
         this.generateChart("graph1", "2018", ["Reliance Jio", "Tata Group", "Juniper Networks"], [15, 12, 20.5]);
         this.generateChart("graph2", "2017", ["Juniper Networks", "TCS", "Infosys"], [15, 10, 13]);
         this.generateChart("graph3", "2016", ["Wipro", "Tata Group", "Juniper Networks"], [14, 12, 15.5]);
-    }
-
+         }
     generateChart(id: string, year: string, cos: Array<string>, amt: Array<number>) {
         Highcharts.chart(id, {
             chart: {
