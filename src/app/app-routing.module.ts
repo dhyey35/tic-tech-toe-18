@@ -42,6 +42,10 @@ const routes: Routes = [
         loadChildren: './analytics/analytics.module#AnalyticsModule',
     }, */
     {
+        path: 'investor-investing',
+        loadChildren: './investor-investing/investor-investing.module#InvestorInvestingModule',
+    },
+    {
         path: 'application',
         loadChildren: './layout/layout.module#LayoutModule',
         canActivate: [AuthGuard]

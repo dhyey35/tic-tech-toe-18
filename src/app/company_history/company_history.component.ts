@@ -5,35 +5,36 @@ import {
     UserAuthenticationService,
     UtilService,
     VolunteerService,
-    volunteerhistoryService
+    
     
 } from '@shared';
-import { Voluteerclass } from '../shared/classes/volunteer_class';
+import { Companyclass } from '../shared/classes/company_class';
+import { CompanyHistoryService } from '../shared/services/company_history';
 
 declare var $: any;
 declare var fontchange: any;
 
 @Component({
-    selector: 'app-volunteer-history-page',
-    templateUrl: './volunteer_history.component.html',
-    styleUrls: ['./volunteer_history.component.scss'],
+    selector: 'app-company-history-page',
+    templateUrl: './company_history.component.html',
+    styleUrls: ['./company_history.component.scss'],
 })
 
-export class VolunteerHistory implements OnInit {
-    public volunteer_history:VolunteerHistory[];
+export class CompanyHistory implements OnInit {
+    public company_history:company_history[];
     constructor(
-        public router: Router,
+      public router: Router,
         public route: ActivatedRoute,
         private userAuthenticationService: UserAuthenticationService,
         public utilService: UtilService,
-        public volunteerhistory_service:volunteerhistoryService
+        public companyhistory_service:CompanyHistoryService
     ){
 
     }
     ngOnInit() { 
-     this.volunteerhistory_service.getVolunteerHistory(parseInt(localStorage.getItem('fk_id'))).subscribe((data:VolunteerHistory[])=>{
+     this.companyhistory_service.getCompanyById(parseInt(localStorage.getItem('fk_id'))).subscribe((data:company_history[])=>{
         console.log(data); 
-        this.volunteer_history=data;
+        this.company_history=data;
      },
      ()=>{
          console.log("Error")
