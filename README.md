@@ -1,57 +1,40 @@
-# SB Admin rewritten in Angular4 and Bootstrap 4
-
-Simple Dashboard Admin App built using Angular 4 and Bootstrap 4
-
-This project is a port of the famous Free Admin Bootstrap Theme [SB Admin v4.0](http://startbootstrap.com/template-overviews/sb-admin-2/) to Angular4 Theme.
-
-Powered by [StartAngular](http://startangular.com/) & [StrapUI](http://strapui.com/)
-
-## [Demo](http://rawgit.com/start-angular/SB-Admin-BS4-Angular-4/master/dist/)
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
-
-### Introduction
-Provides fast, reliable and extensible starter for the development of Angular projects.
-
-`sb-admin-bs4-angular4` provides the following features:
-- Developed using boostrap-v4.0.0-alpha.6
-- angular-v4.2.4
-- angular/cli-v1.1.3
-- Following the best practices.
-- Ahead-of-Time compilation support.
-- Official Angular i18n support.
-- Production and development builds.
-- Tree-Shaking production builds.
 
 ### How to start
 **Note** that this seed project requires  **node >=v6.9.0 and npm >=3**.
 
 In order to start the project use:
 ```bash
-$ git clone https://github.com/start-angular/SB-Admin-BS4-Angular-4
-$ cd SB-Admin-BS4-Angular-4
+$ git clone https://github.com/dhyey35/tic-tech-toe-18.git
+$ cd tic-tech-toe-18
 # install the project's dependencies
 $ npm install
-# watches your files and uses livereload by default run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# watches your files and uses livereload by default run `npm start` for a dev server. Navigate to `http://localhost:4209/`. The app will automatically reload if you change any of the source files.
 $ npm start
 # prod build, will output the production application in `dist`
 # the produced code can be deployed (rsynced) to a remote server
 $ npm run build
 ```
 
-### Code scaffolding
+### Project Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+We have chosen problem statement 3.
+We had made webapp in Angular Framework. We have integrated Google Maps API to get location of user. 
 
-### Running unit tests
+We have integrated Google Translator API to translate our website into Indian languages.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Why to donate? when you can invest?**
 
-### Running end-to-end tests
+Here we are taking financial grants from investor like from MSEs and others and giving them return on their investment by taking token amount on using our labs and computers at nominal rates.
+MNCs are also interested by giving us financial grants and doing their CSR's. 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+**We have 3 types of users:**
 
-### Further help
+1. Company: Company who are interested in giving financial grant
+2. Investor: An individual who is interested in investing money
+3. Volunteer: When you are over interested in giving free education to rural people
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+We are taking requests from different regions of India to develop Computer Labs and Internet Networks in their regionals.
+
+We will calculate the number of people who will use the computer labs in rural areas. We will also provide them instructors to manage lab. Company will be benefited because we are branding their name on our website and individual will get benefited by getting return on investment.
+
+**So this is how we are providing computer labs with internet and with instructor to facilitate education among the rural kids. A small step of ours have made a big difference!!!**
